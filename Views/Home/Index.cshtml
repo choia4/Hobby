@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Hello!</title>
+        <link rel="stylesheet" href="~/css/style.css"/>
+        
+    </head>
+    <body>
+        <div class="header">
+            <h1>Registration</h1>
+            <a href="/login" style="margin-left: 1000px;">Login</a>
+        </div>
+        @model User
+        <div class="container">
+            <form asp-action="registration" asp-controller="Home" method="post">
+                <span asp-validation-for="First_Name"></span>
+                <label asp-for="First_Name"></label>
+                <input asp-for="First_Name">
+                <br>
+                <span asp-validation-for="Last_Name"></span>
+                <label asp-for="Last_Name"></label>
+                <input asp-for="Last_Name">
+                <br>
+                <span asp-validation-for="Username"></span>
+                <label asp-for="Username"></label>
+                <input asp-for="Username">
+                <br>
+                <span asp-validation-for="Email"></span>
+                <label asp-for="Email"></label>
+                <input asp-for="Email">
+                <br>
+                <span asp-validation-for="Password"></span>
+                <label asp-for="Password"></label>
+                <input asp-for="Password">
+                <br>
+                <span asp-validation-for="Confirm"></span>
+                <label asp-for="Confirm"></label>
+                <input asp-for="Confirm">
+                <br>
+                <input value="Sign up Now" type="submit">    
+            </form>
+            
+            <partial name="Login" />
+        </div>
+    </body>
+</html>

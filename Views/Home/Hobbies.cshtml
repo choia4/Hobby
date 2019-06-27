@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Success</title>
+        <link rel="stylesheet" href="~/css/style.css"/>
+        
+    </head>
+    <body>
+        <a href="/logout" style="margin-left: 1000px;">Logout</a>
+        <h1>
+            Hobbies
+        </h1>
+
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Enthusiasts</th>
+            </tr>
+            @model List<Hobbies>
+            @foreach(Hobbies hobby in @Model) 
+            {
+                <tr>
+                    <td>
+                        <a href="/HobbyDescription/@hobby.HobbyId">@hobby.Name</a>
+                    </td>
+                    <td>
+                        @hobby.HobbiesInUsers.Count
+                    </td>
+                </tr>
+            }
+        </table>
+        <br>
+
+
+        <p>Top Novice:</p>
+        @foreach(string s in @ViewBag.Novice) 
+        {
+            <p>
+                @s
+            </p>
+        }
+
+        <p>Top Intermediate:</p>
+        @foreach(string s in @ViewBag.Intermediate)
+        {
+            <p>
+                @s
+            </p>
+        }
+
+        <p>Top Expert:</p>
+        @foreach(string s in @ViewBag.Expert)
+        {
+            <p>
+                @s
+            </p>
+        }
+
+        <a href= "/AddHobby">Create a Hobby</a>
+    </body>
+</html>

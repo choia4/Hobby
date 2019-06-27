@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Hello!</title>
+        <link rel="stylesheet" href="~/css/style.css"/>
+        
+    </head>
+    <body>
+        <div class="header">
+            <h1>Login</h1>
+        </div>
+        <div class="container">
+            
+            @model LoginUser
+            <form asp-action="loginval" asp-controller="Home" method="post">
+
+                <span asp-validation-for="Email2"></span>
+                <label asp-for="Email2"></label>
+                <input asp-for="Email2">
+
+                <span asp-validation-for="Password2"></span>
+                <label asp-for="Password2"></label>
+                <input asp-for="Password2">
+                <br>
+                <input value="Login" type="submit">    
+            </form>
+        </div>
+    </body>
+</html>

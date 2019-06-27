@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Success</title>
+        <link rel="stylesheet" href="~/css/style.css"/>
+        
+    </head>
+    <body>
+        <a href="/Hobbies" style="margin-left: 850px;">Hobbies</a>
+        <a href="/logout" style="margin-left: 50px;">Logout</a>
+        @using Hobby.Models
+        @model Hobbies
+        <h1>
+            @Model.Name
+        </h1>
+
+        <p>
+            Description: @Model.Description
+        </p>
+
+        <br>
+
+        <p> 
+            @Model.Name Enthusiasts:
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Enthusiast</th>
+                </tr>
+
+                @foreach(HIU HobbiesInUsers in @Model.HobbiesInUsers)
+                {
+                    <tr>
+                        <td>
+                            @HobbiesInUsers.User.First_Name
+                        </td>
+                        <td>
+                            @HobbiesInUsers.Proficiency
+                        </td>
+                    </tr>
+                }
+            </table>
+        </p>
+
+        <br>
+
+        <p> Become an Enthusiast </p>
+
+        <form action="/CreateEnthusiast" controller="Home" method="post">
+            <select name="Proficiency">
+                <option value="Novice">Novice</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Expert">Expert</option>
+            </select>
+            <br>
+            <input type="hidden" name="Hobby_Id" value="@Model.HobbyId">
+            <input type = "submit" value ="Add to Hobbies">
+        </form>
+
+
+    </body>
+</html>
